@@ -5,6 +5,7 @@ Project property: `shiyuyuanwei` · EU ingest · 注册表：`~/Notebooks/contex
 | 事件 | 属性 | 触发 |
 |------|------|------|
 | `page_view` | `ref` · `sport`（bd/pb/tt） | 页面加载 |
+| `page_leave` | `dwell_ms`（累计可见毫秒）· `scroll_pct`（最大滚动 0-100） | 页面隐藏/关闭时上报——时长与首屏留存 |
 | `sport_switch` | `to` | 切换运动 tab |
 | `nav_click` | `to`（matrix/theory/test） | 导航锚点 |
 | `share_copy` | — | 复制分享文案 |
