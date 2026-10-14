@@ -846,12 +846,17 @@ footer.site a{color:#9fc3e8}
 
 <script>
 // ── share ─────────────────────────────────────────────
-const SHARE_TXT = '事与愿违｜运动反直觉陷阱：你的身体，出厂设置是错的。羽毛球 14 坑——越想发力越没力，越怕越退越是输。来测你的出厂设置残留：https://liyuankui.github.io/shiyuyuanwei/';
+const SHARE_BY_SPORT = {
+  bd: '事与愿违｜羽毛球 14 个反直觉陷阱：越想发力越没力，越怕越退越是输——你的出厂设置是错的。来测残留：https://liyuankui.github.io/shiyuyuanwei/#bd',
+  pb: '事与愿违｜匹克球 18 个反直觉陷阱：先学会不出力——锁腕、3 分力卸力、厨房线引力。来测你的出厂设置残留：https://liyuankui.github.io/shiyuyuanwei/#pb',
+  tt: '事与愿违｜乒乓 15 个反直觉陷阱：越不敢发力越容易出界——旋转才安全，发力才上台。来测残留：https://liyuankui.github.io/shiyuyuanwei/#tt'
+};
+const shareText = () => SHARE_BY_SPORT[document.body.dataset.view || 'bd'] || SHARE_BY_SPORT.bd;
 document.getElementById('shareBtn').onclick = async () => {
-  try { await navigator.clipboard.writeText(SHARE_TXT); } catch (e) {}
+  try { await navigator.clipboard.writeText(shareText()); } catch (e) {}
   const b = document.getElementById('shareBtn'); b.textContent = '✓ 已复制';
   setTimeout(() => b.textContent = '⧉ 复制分享文案', 1600);
-  track('share_copy', {});
+  track('share_copy', { sport: document.body.dataset.view || 'bd' });
 };
 document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListener('click', () => {
   track('nav_click', { to: a.getAttribute('href').slice(1) });
