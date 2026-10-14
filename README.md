@@ -3,6 +3,7 @@
 > 你的身体，出厂设置是错的。三球已上线：羽毛球 14 坑 · 匹克球 18 坑 · 乒乓 15 坑——每坑五栏（看起来 × 实际上 × 本能 × 代价 × 纠正），加「三球切换」防串台指南。
 
 🔗 https://liyuankui.github.io/shiyuyuanwei/
+> 🗺️ 家族总索引：[liyuankui.github.io/sports/](https://liyuankui.github.io/sports/)（四问×四运动矩阵）
 
 ## Features
 
