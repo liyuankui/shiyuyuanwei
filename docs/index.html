@@ -29,6 +29,20 @@ a:hover{text-decoration:underline}
 b{font-weight:700}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 
+.view{display:none}
+.view.active{display:block}
+.sport-tab{border:1.5px solid var(--ink);background:var(--paper);border-radius:999px;padding:3px 12px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--sans);color:var(--ink)}
+.sport-tab.active{background:var(--ink);color:#f4efe4}
+.sport-tab.soon{opacity:.45;cursor:default}
+body[data-view="bd"] .a-pb, body[data-view="bd"] .a-tt{display:none}
+body[data-view="pb"] .a-bd, body[data-view="pb"] .a-tt{display:none}
+body[data-view="tt"] .a-bd, body[data-view="tt"] .a-pb{display:none}
+.mx{width:100%;border-collapse:collapse;font-size:12.8px;background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;overflow:hidden}
+.mx th,.mx td{border:1px solid #d8d0c0;padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55}
+.mx th{background:var(--ink);color:#f4efe4;font-family:var(--serif);font-size:13px}
+.mx td:first-child{font-weight:800;white-space:nowrap;background:rgba(34,30,24,.05)}
+.mx .warn td{background:rgba(191,58,38,.07)}
+@media(max-width:720px){.mx{font-size:11.8px}.mx th,.mx td{padding:6px 7px}.mx td:first-child{white-space:normal}}
 nav{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
 .nav-in{display:flex;align-items:center;gap:18px;padding:12px 22px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
 .brand{font-family:var(--serif);font-weight:900;font-size:19px}
@@ -153,18 +167,25 @@ footer.site a{color:#9fc3e8}
 
 <nav><div class="nav-in">
   <span class="brand">事与<em>愿违</em></span>
-  <span class="sport-pill">🏸 羽毛球</span>
-  <span class="sport-pill soon" title="制作中">🥒</span>
-  <span class="sport-pill soon" title="制作中">🏓</span>
-  <span class="sport-pill soon" title="制作中">🎾</span>
-  <a href="#matrix">陷阱总览</a>
-  <a href="#theory">出厂设置</a>
+  <span class="sport-tabs">
+    <button class="sport-tab active" data-sport="bd">🏸 羽毛球</button>
+    <button class="sport-tab" data-sport="pb">🥒 匹克球</button>
+    <button class="sport-tab" data-sport="tt">🏓 乒乓</button>
+    <button class="sport-tab soon" title="制作中">🎾</button>
+  </span>
+  <a class="a-bd" href="#bd-matrix">陷阱总览</a>
+  <a class="a-bd" href="#bd-theory">出厂设置</a>
+  <a class="a-pb" href="#pb-matrix">陷阱总览</a>
+  <a class="a-pb" href="#pb-theory">出厂设置</a>
+  <a class="a-tt" href="#tt-matrix">陷阱总览</a>
+  <a class="a-tt" href="#tt-theory">出厂设置</a>
+  <a href="#switch">三球切换</a>
   <a href="#test">残留自测</a>
   <a class="fam" href="https://liyuankui.github.io/" target="_blank">三板斧家族 →</a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="kicker">SPORTS · 羽毛球先行</div>
+<header class="hero view active" id="hero-bd"><div class="wrap">
+  <div class="kicker">SPORTS · 羽毛球 EDITION</div>
   <h1>事与<em>愿违</em></h1>
   <div class="vs-line">
     <span class="vs-pill zhi">看起来 · 出厂设置</span>
@@ -182,10 +203,10 @@ footer.site a{color:#9fc3e8}
   </div>
 </div></header>
 
-<div class="wrap">
+<div class="wrap view active" id="view-bd">
 
   <!-- ============ 陷阱总览 ============ -->
-  <section id="matrix">
+  <section id="bd-matrix">
     <div class="sec-head"><h2>陷阱<em style="color:var(--bing)">总览</em></h2></div>
     <p class="sec-sub">每张卡五栏：<b>看起来</b>（直觉动作）→ <b>实际上</b>（物理本质）→ 本能为何骗你 → 代价（含伤病）→ 怎么改（训练法）。先记总开关：决定球速的不是力量，是触球瞬间拍头线速度——动能里速度是平方项。</p>
 
@@ -368,7 +389,7 @@ footer.site a{color:#9fc3e8}
   </section>
 
   <!-- ============ 出厂设置 ============ -->
-  <section id="theory">
+  <section id="bd-theory">
     <div class="sec-head"><h2>出厂<em style="color:#e8b96a">设置</em></h2></div>
     <p class="sec-sub">14 个陷阱指向同一个终极矛盾：基因与球场，物理参数完全错配。</p>
     <div class="theory-grid">
@@ -407,12 +428,385 @@ footer.site a{color:#9fc3e8}
     </div>
   </section>
 
-  <!-- ============ 自测 ============ -->
+
+
+</div>
+
+<div class="wrap view" id="view-pb">
+
+<header class="hero" id="hero-pb" style="padding:40px 0 6px;text-align:center"><div class="wrap">
+  <div class="kicker">PICKLEBALL EDITION · 匹克球</div>
+  <h1 style="font-size:clamp(30px,6vw,54px)">打匹克球，先学会<span style="color:var(--bing)">不出力</span></h1>
+  <p class="sub">羽毛球要你变成极速释放的鞭子；匹克球要你变成<b>能吞噬动能的海绵</b>与<b>角度精密的炮台</b>——把羽毛球的手腕闪动带进来，就是灾难。18 个陷阱，从锁腕到 Erne。</p>
+</div></header>
+
+  <section id="pb-matrix">
+    <div class="sec-head"><h2>陷阱<em style="color:var(--bing)">总览</em></h2></div>
+    <p class="sec-sub">总开关只有一句话：<b>手腕锁死，以肩为轴</b>——硬拍面配硬塑料球，触球只有 3-4 毫秒，手腕晃两度球就没了。</p>
+
+    <div class="stage-h"><span class="no">壹</span><span class="nm">基础十坑</span><span class="hint">跨项老手的重灾区</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">1</span>手腕：锁死如打石膏</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>像羽毛球/乒乓那样靠手腕甩动、内旋、抖动来抽球控球。</div><div class="side shi"><b>实际上</b>手腕与前臂铸成<b>刚性整体</b>，以肩为轴钟摆推送——触球仅 3-4 毫秒，腕晃两度＝下网或出底线。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>跨项肌肉记忆负迁移；人爱用最灵活的末梢调拍面。</div>
+          <div class="row fix"><span class="lb">纠正</span>「打石膏」想象：手腕缠了绷带，dink 与抽球全靠胸口和肩膀平移推送。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">2</span>第三拍：轻放，不抽</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>对手冲到网前，我方在底线应该大力抽一拍把人打穿。</div><div class="side shi"><b>实际上</b><b>Third Shot Drop</b>：慢速高弧线落入对方厨房——平抽球正好在对手胸口高度，被借力一拍钉死。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>被逼网的压迫感，想用暴力一拍解决。</div>
+          <div class="row fix"><span class="lb">纠正</span>把后场当大号网前：屈膝下沉由下往上托举，用慢球买时间全速冲厨房线。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">3</span>接重杀：松手卸力</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>被大力扣杀，握紧球拍用力顶回去、对抽。</div><div class="side shi"><b>实际上</b><b>3 分力松握</b>＋拍面微仰：吸收对手 80% 动能，让球软软落进对方厨房——握死＝球像炮弹弹回，被连续轰穿。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>高速来球→全身紧绷死握（10 分力）硬碰硬。</div>
+          <div class="row fix"><span class="lb">纠正</span>「海绵接鸡蛋」：手指松到快拿不住拍，只练触球瞬间不发力甚至微收。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">4</span>空间：全员冲厨房线</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>像网球单打，打完退回底线中间防守对拉。</div><div class="side shi"><b>实际上</b><b>80% 的得分发生在厨房线</b>——退底线等于缴械；发球方唯一使命是尽快挤到网前。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>网球/羽毛球的「回中心/退后场」空间直觉。</div>
+          <div class="row fix"><span class="lb">纠正</span>红绿灯推进：打完第三拍立即前冲，但对手引拍前瞬间急停分腿下蹲，分两步蚕食到线。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">5</span>Dink：用腿，不用腰</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>网前弯腰驼背，伸长胳膊用小臂手腕去「戳」低球。</div><div class="side shi"><b>实际上</b>脊柱挺直、<b>屈膝下沉</b>，靠腿部升降与肩部钟摆把球「推举」过网。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>弯腰＝重心锁死脚尖，弧线忽高忽低，冒高 10 厘米就被迎面暴扣。</div>
+          <div class="row fix"><span class="lb">纠正</span>「端盘子深蹲」：头顶放一杯水，够低球只能靠下蹲，臀腿起伏带动肩膀。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">6</span>旋转：长轨包裹，不薄擦</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>像乒乓拉弧圈：拍面薄切、手腕快速翻动制造旋转。</div><div class="side shi"><b>实际上</b>光滑硬拍面没有海绵吃球——必须<b>极陡的由低到高长轨迹</b>刷上去，腕锁死靠转髋抬肩。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>薄切＝球在光滑拍面打滑下网；翻腕＝弧线彻底失控。</div>
+          <div class="row fix"><span class="lb">纠正</span>雨刮器训练：拍头沉到膝下、锁 75-80° 拍角，整条前臂从右膝刷向左肩上方。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">7</span>弹跳：预判砍一半</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>站在原地等球弹到腰部高度再从容击球。</div><div class="side shi"><b>实际上</b>塑料球落地反弹极低，带下旋的球还会<b>贴地往前滑</b>——永远假设弹起高度只有预想的一半。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>等球＝眼睁睁看它二次落地，或在脚踝高度狼狈挑高送死。</div>
+          <div class="row fix"><span class="lb">纠正</span>脚步比视觉预判多垫半步，赶上升期或最高点迎前。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">8</span>网前：短挥，即回位</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>厨房线抓到高球，大力把手臂挥向另一侧扣杀，一击必杀。</div><div class="side shi"><b>实际上</b>网前往返仅 0.3-0.4 秒——挥拍幅度<b>不能超过身宽</b>，击球后拍子立刻弹回胸前。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>随挥超出身体中线，对手一挡，你来不及防第二拍直接被穿胸。</div>
+          <div class="row fix"><span class="lb">纠正</span>「胸前小方框」：双肘架肋前，引拍随挥不超双肩矩形，打完拍头归位指网。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">9</span>出界球：让它飞</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>对手网前全力平抽，球速极快胸口高度——赶紧伸拍去拦。</div><div class="side shi"><b>实际上</b>无强上旋的高速平球，<b>九成直接飞出底线</b>——伸拍去挡＝帮对手救球。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>惊跳反射：高速物体迎面＝举手格挡。</div>
+          <div class="row fix"><span class="lb">纠正</span>「肩膀即边线」：站厨房线时，肩以上（非上旋的胸口以上）的平球一律侧身放行。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">10</span>提速：网高以上才许加速</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>dink 对拉失去耐心，球还在膝下就突然发力抽球。</div><div class="side shi"><b>实际上</b>低于网高加速必出界或被按死——<b>只有网高以上才是绿灯</b>。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>赌博心态＋缺乏几何认知：从网下往上抽，不上强旋必出界。</div>
+          <div class="row fix"><span class="lb">纠正</span>红黄绿灯纪律：膝下＝100% 斜线 dink；膝到网高＝只给上旋；网高以上＝锁腕闪击持拍肩。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stage-h"><span class="no">贰</span><span class="nm">进阶八坑</span><span class="hint">几何、协同与规则边界</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">11</span>攻击：死磕中路</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>对手边线有空当，赶紧打大角度斜线去调动。</div><div class="side shi"><b>实际上</b>场地仅 6.1 米宽，两人站厨房线即覆盖全宽——最致命的空当在<b>两人正中间</b>：封死回球角度＋制造抢球混乱＋网中央最低（34 寸 vs 边线 36 寸）。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>「拉空当」的羽毛球/网球直觉迁移。</div>
+          <div class="row cost"><span class="lb">代价</span>打边线易出界，还送对手 ATP 外角。</div>
+          <div class="row fix"><span class="lb">纠正</span>中路优先铁律：进攻八成瞄两人结合部。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">12</span>网前防身：反手盾牌</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>快节奏交火时正反手一视同仁，居中持拍等待。</div><div class="side shi"><b>实际上</b>准备姿态直接<b>偏置为反手盾牌</b>挡在胸前——球冲右胸腋下来时，正手解剖上折叠不到胸前，会被卡成「鸡翅膀」。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>「正手更有力」的日常偏好。</div>
+          <div class="row fix"><span class="lb">纠正</span>右手持拍者拍头微偏左，身体正中与偏右的球一律反手外推。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">13</span>推进：急停-分腿-再推进</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>第三拍打完像百米冲刺，一口气狂奔到厨房线。</div><div class="side shi"><b>实际上</b>对手引拍瞬间必须<b>原地分腿蹲定</b>——前倾奔跑中既处理不了脚背低球也无法变向。</div></div>
+        <div class="rows">
+          <div class="row fix"><span class="lb">纠正</span>「木头人」：眼睛绑定对手球拍，他一引拍＝红灯急停，接完再挪两步。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">14</span>追高球：绝不倒退跑</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>对手挑过头顶，一边盯球一边倒退着小碎步回底线。</div><div class="side shi"><b>实际上</b>立刻<b>转身撤步</b>（Drop Step）正向跑——倒退速度慢一半，绊倒后仰砸地是匹克球<b>第一重伤原因</b>。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>不敢把视线从球上移开，用倒退维持面网安全感。</div>
+          <div class="row fix"><span class="lb">纠正</span>球一过头顶，右脚后撤带髋 180° 转身，像接橄榄球一样侧头盯球大步跑。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">15</span>双打：隐形铁棍同频横移</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>像羽毛球防守，一人守左半场一人守右半场。</div><div class="side shi"><b>实际上</b>两人之间拴着 2.5 米隐形铁棍（Shading）：球往左飞一米，<b>全队同步左移一米</b>——各守一半＝中间裂出 3 米黑洞。</div></div>
+        <div class="rows">
+          <div class="row fix"><span class="lb">纠正</span>忘掉中线，注意力绑定球的横向位置，像桌面足球小人整体平移。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">16</span>ATP：绕过网柱，不必过网</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>大角度 dink 飞出边线，拼命在极限低位把球往上勾过网。</div><div class="side shi"><b>实际上</b>规则只要求过网<b>或过网柱</b>——贴地从柱外侧平抽（ATP）完全合法，还更易控制。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>潜意识认为所有球必须从网上方过去。</div>
+          <div class="row fix"><span class="lb">纠正</span>角度触发器：双脚一出边线，立刻切换物理规则——瞄准底线外角贴柱低平抽。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">17</span>厨房：地面是岩浆，空中不是</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>厨房区神圣不可侵犯，脚绝不敢越线半步。</div><div class="side shi"><b>实际上</b>起跳点在线外就能<b>飞跃厨房区半空截击（Erne）</b>；反过来球死了，惯性收不住踩线照样违例送分。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>不敢用 Erne 错失绝杀；探身截击后 2 秒踩线，到手分送人。</div>
+          <div class="row fix"><span class="lb">纠正</span>失衡时宁可单脚跳出边线或让搭档拉住；对手死磕边线 dink 时果断飞跃拦截。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">18</span>快攻：1-2 组合拳</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>抓到半高球，倾尽全力抡一拍指望直接打死。</div><div class="side shi"><b>实际上</b>高水平局单拍加速几乎打不死人——<b>第一拍 70% 力打对手右髋右肩做球</b>，第二拍才是 100% 绝杀。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>羽毛球重杀一锤定音的爽感迁移。</div>
+          <div class="row cost"><span class="lb">代价</span>全力抽＝重心失衡还原慢，0.3 秒后被反杀。</div>
+          <div class="row fix"><span class="lb">纠正</span>默念「一、二」：第一拍逼挡高，拍头归位，抓半高球第二拍下压。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="pb-theory">
+    <div class="sec-head"><h2>出厂<em style="color:#e8b96a">设置</em></h2></div>
+    <p class="sec-sub">羽毛球练「释放」，匹克球练「抑制」——厨房宪法＋硬拍硬球，从物理上阉割了「大力出奇迹」。</p>
+    <div class="grid g3">
+      <div class="card"><div class="bignum">26<small> 克</small></div><div class="cap">穿孔硬塑料球——比羽毛球重五倍，比网球轻一半：既不打出去，也不听话弹起。</div></div>
+      <div class="card"><div class="bignum">3-4<small> 毫秒</small></div><div class="cap">刚性拍面触球时长——与羽毛球同量级，但拍面无弹性容错，腕动两度即失。</div></div>
+      <div class="card"><div class="bignum">80<small> %</small></div><div class="cap">得分发生在厨房线——位置不是战术，是胜负本身。</div></div>
+    </div>
+    <div class="verdict">
+      打好羽毛球，把身体变成极速释放的鞭子；打好匹克球，把身体变成<em>能吞噬动能的海绵</em>与<em>角度精密的炮台</em>——谁克制得住手腕，谁在被暴扣时松得开手指，谁统治比赛。
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap view" id="view-tt">
+
+<header class="hero" id="hero-tt" style="padding:40px 0 6px;text-align:center"><div class="wrap">
+  <div class="kicker">TABLE TENNIS EDITION · 乒乓球</div>
+  <h1 style="font-size:clamp(30px,6vw,54px)">越不敢发力，<span style="color:var(--bing)">越容易出界</span></h1>
+  <p class="sub">触球约 1 毫秒、旋转最高 150 转/秒、唯一引入海绵非线性介质——乒乓是微观物理怪兽：来球的旋转直接改变碰撞瞬间的摩擦力方向，日常直觉全数失效。15 个陷阱，从「先打后摩」到「变线靠时机」。</p>
+</div></header>
+
+  <section id="tt-matrix">
+    <div class="sec-head"><h2>陷阱<em style="color:var(--bing)">总览</em></h2></div>
+    <p class="sec-sub">总开关：<b>先打后摩（撞摩融合）</b>——旋转不是薄擦出来的，是把球砸进海绵再「抓」出去的。</p>
+
+    <div class="stage-h"><span class="no">壹</span><span class="nm">动力链与海绵物理</span><span class="hint">五坑</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">1</span>弧圈：先打后摩，不薄擦</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>拍面压低，用胶皮轻轻「薄擦」球皮，拉得越转越好。</div><div class="side shi"><b>实际上</b>先给法向撞击<b>把球砸进海绵撞透底板</b>，借海绵恢复形变＋前臂切向加速把球「抓」出去。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>薄擦出「假弧圈」：空转无底劲，遇下旋直接打滑落网。</div>
+          <div class="row fix"><span class="lb">纠正</span>「透板声」锚点：拍面立到 70-80°，追求底板清脆的「啪」，不是胶皮沉闷的「哧」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">2</span>越发力，越安全</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>怕出界，不敢发力放慢挥速，轻轻「托」过网。</div><div class="side shi"><b>实际上</b>只有极高挥速才能制造强上旋，<b>马格努斯力把球强行按在台上</b>——减速＝旋转消失＝平击出界。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>「力量越大飞得越远」的抛物线日常直觉。</div>
+          <div class="row fix"><span class="lb">纠正</span>越是机会球越要极速收小臂＋制动，相信旋转的向下曲率。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">3</span>正手蓄力：沉右胯，不抡臂</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>手臂往右后方拉得老远，再抡圆了往前抽。</div><div class="side shi"><b>实际上</b>手臂几乎不动，靠<b>右胯后沉</b>带拍：肘不越背平面，右脚踩实、右髋向后下方松沉完成引拍。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>来球间隔仅 0.3-0.5 秒：大引拍来不及还原，击球点落到身后被顶死。</div>
+          <div class="row fix"><span class="lb">纠正</span>腋下夹毛巾防大臂乱飞；引拍时左手去戳右髋折痕，体会「胯让空间」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">4</span>发力：重心迎前，不拧腰</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>双脚钉地，腰部像拧麻花原地左右转，打完手臂甩到左耳后。</div><div class="side shi"><b>实际上</b>核心是<b>向斜前方的线性冲量</b>：蹬地顶髋，重心右脚平移到左脚，触球瞬间在左眼前急停。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>原地转腰全是横向侧滑力，球发飘不走；随挥过大重心偏左，变线救不回来。</div>
+          <div class="row fix"><span class="lb">纠正</span>「额头前定帧」：胸口明显前压，拍头在额头正前方戛然而止弹回准备位。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">5</span>反手：肘是轴，不是拉二胡</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>像拉二胡拔刀，抬大臂用手肘带拍往右上方「拉」。</div><div class="side shi"><b>实际上</b><b>肘下沉钉死为轴心</b>：小臂先外展再极速内收＋手腕弹甩，在腹前 20 厘米完成爆发。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>抬肘耸肩＝拍面角失控，大臂太重无法近台连续快撕。</div>
+          <div class="row fix"><span class="lb">纠正</span>左掌托右肘：徒手挥拍时左手死死托住肘下，只允许小臂绕肘扇形闪动。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stage-h"><span class="no">贰</span><span class="nm">旋转破译与弧线</span><span class="hint">五坑</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">6</span>拉下旋：立板冲，不亮板托</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>下旋球往网下钻，拍面仰起来从底部往上「托」。</div><div class="side shi"><b>实际上</b>拍面依然近乎垂直（75-80°），<b>重心降到台面以下</b>，靠极致向上的挥拍轨迹硬吃球中部偏下。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>下旋碰仰起的拍面产生向后下的反弹分量——越托越往下栽网，或冒高被拍死。</div>
+          <div class="row fix"><span class="lb">纠正</span>膝盖找球不亮板：深蹲把右肩降到比球还低，蹬腿沿球背面向上「刷」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">7</span>防爆冲：迎前闷住，不后缩</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>对手爆冲球速极快，退半步、缩手「卸力」挡一板。</div><div class="side shi"><b>实际上</b>重心前压拍面微盖，在球<b>弹起的上升初期直接迎上去闷住</b>——挥拍近零，借对手的动能与旋转弹回。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>后缩等球到最高点，上旋已完全释放：二跳前冲上拱，一碰飞向天花板。</div>
+          <div class="row fix"><span class="lb">纠正</span>看到大引拍就踩死近台不退反进，拍子像墙一样迎上去。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">8</span>搓球：砍底部，不前推</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>回下旋球，拿拍从后往前慢慢「推」「送」过去。</div><div class="side shi"><b>实际上</b>手腕寸劲沿球体底部<b>斜下方一砍即停</b>，靠球自身弹跳过网——前推越多撞击越多旋转越少。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>推出完全不转的拱高半高球，沦为暴冲靶子。</div>
+          <div class="row fix"><span class="lb">纠正</span>「切菜急停」：上升期前臂带腕像剁案板寸劲一砍，拍头前送不超 10 厘米。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">9</span>摆短：借上升期，不等下降</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>想摆短，等球跳到最高点快落下时轻轻伸拍碰一下。</div><div class="side shi"><b>实际上</b>脚先插进台下，赶在<b>刚起跳的上升初期触球即收</b>，用球的起跳初速抵消重力。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>下降期球已无垂直动量，为过网必须上托——一托就长出台被抢拉。</div>
+          <div class="row fix"><span class="lb">纠正</span>「滴-答」节拍：球落台是滴、触拍是答连读；右脚深迈台底，手指瞬间卸力把球「吸」在近网。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">10</span>拧拉：立肘画弧，不硬掰腕</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>手腕死死内曲，硬生生把球往上「掰」起来。</div><div class="side shi"><b>实际上</b><b>架高肘部让拍头自然下垂</b>，手腕从极度内屈向斜前方外展摩擦球侧/顶部——台内制造侧上旋弧线。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>硬掰十个八个下网，且极易伤手腕三角纤维软骨（TFCC）。</div>
+          <div class="row fix"><span class="lb">纠正</span>「开瓶盖」架肘法：上步入台，肘架到胸高，触球像极速拧开瓶盖甩出。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stage-h"><span class="no">叁</span><span class="nm">步法、预判与器材</span><span class="hint">五坑</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">11</span>移动：并步平移，不跨步够球</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>球到右边右脚迈一步伸手去够，球到左边迈左脚。</div><div class="side shi"><b>实际上</b>永远是<b>远离球的那只脚先蹬</b>（并步/跳步）：双脚近乎同时小幅腾空平移，间距恒定。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>单脚跨大步＝劈叉锁死重心，髋无法旋转发力，无法衔接下一板。</div>
+          <div class="row fix"><span class="lb">纠正</span>想象脚踝间绑了 50 厘米硬弹簧：移动必须成对平移，严禁单腿跨步捞球。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">12</span>判断旋转：听声看触点，不追球</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>死盯空中飞来的球，想看清商标怎么转再接。</div><div class="side shi"><b>实际上</b>球在空中的 0.2 秒肉眼根本无法分辨转速——<b>看触球瞬间的拍面部位与加速方向、听击球声</b>，50 毫秒内完成建模。</div></div>
+        <div class="rows">
+          <div class="row fix"><span class="lb">纠正</span>多模态译码：脆响＋快＝不转；闷响摩擦＝极转；触拍头前部（线速度最大）＝极转，触拍根＝假动作。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">13</span>还原：每拍必垫步</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>打完好球手收回来，保持转腰直腿的姿势看对手怎么接。</div><div class="side shi"><b>实际上</b>击球结束尚未看清落点，就必须小碎步把<b>重心压回前脚掌中立位</b>——击球与还原是不可分割的闭环。</div></div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>大脑「确认劳动成果」的奖赏机制，爱站着欣赏好球。</div>
+          <div class="row fix"><span class="lb">纠正</span>「一拍一垫步」绑定：挥拍结束瞬间前脚掌原地「哒哒」弹跳，不垫步不准接下一球。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">14</span>粘套涩套：两套发力人格</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>正反手都是海绵胶皮，发力手感应该差不多。</div><div class="side shi"><b>实际上</b>硬质粘套（狂飙）要<b>大动作鞭打＋长轨迹包裹</b>；涩套要<b>迎前撞透＋短促寸劲</b>——两种摩擦物理完全不同。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>拿涩套打法打狂飙＝打砖头不走路；拿狂飙打法打涩套＝打滑喷出界。</div>
+          <div class="row fix"><span class="lb">纠正</span>物理人格分裂：正手硬粘套蹬转砸透再收小臂；反手涩套立肘正撞借弹＋腕寸劲包裹。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">15</span>变线：改时机，不掰手腕</h3>
+        <div class="duel"><div class="side zhi"><b>看起来</b>想斜线变直线，触球瞬间偷偷把拍面手腕往外「撇」。</div><div class="side shi"><b>实际上</b>发力与手腕绝对不变，只靠<b>延后半拍击球点</b>（变直）或提前迎前（变斜）＋微调站位朝向。</div></div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>高速旋转中手腕一撇，「撞摩比例」崩塌，十有八九出边线或下网。</div>
+          <div class="row fix"><span class="lb">纠正</span>时机几何学：想变直线，腕锁死让球多飞 10 厘米（击球点稍靠后），顺重心正向顶出。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tt-theory">
+    <div class="sec-head"><h2>出厂<em style="color:#e8b96a">设置</em></h2></div>
+    <p class="sec-sub">乒乓的「出厂设置冲突」最极端：它要求你相信——<b>越发力越安全</b>。</p>
+    <div class="grid g3">
+      <div class="card"><div class="bignum">~1<small> 毫秒</small></div><div class="cap">触球时长——三项持拍运动最短，比神经反馈快百倍，全靠预装程序。</div></div>
+      <div class="card"><div class="bignum">150<small> 转/秒</small></div><div class="cap">旋转极值——旋转直接改变碰撞瞬间的摩擦力矢量，直觉全线失效。</div></div>
+      <div class="card"><div class="bignum">2.74<small> 米</small></div><div class="cap">球台全长——没有空间犯错，只有弧线（马格努斯）能救你。</div></div>
+    </div>
+    <div class="verdict">
+      羽毛球是空气动力学的博弈，匹克球是刚体碰撞的博弈，乒乓球是<em>旋转与海绵非线性的博弈</em>——在这里，求稳的本能恰恰是出界的原因：旋转才安全，发力才上台。
+    </div>
+  </section>
+
+</div>
+
+
+<div class="wrap">
+
+  <!-- ============ 三球切换 ============ -->
+  <section id="switch">
+    <div class="sec-head"><h2>三球<em style="color:#2e6e4e">切换</em></h2></div>
+    <p class="sec-sub">同时打三种球，神经控制在互相打架。上场前三分钟，切换这三个物理开关，就能防「动作串台」。</p>
+    <div class="grid g3">
+      <div class="card"><h3>🔧 手腕自由度</h3><p><b>羽毛球＝全开</b>：旋内/旋外是核心加速器，掌心留空。<b>乒乓＝半开</b>：微内收＋寸劲摩擦，不乱甩但要有弹性。<b>匹克球＝锁死</b>：以肩为轴，手腕零自由度（除网前平抽微调）。</p></div>
+      <div class="card"><h3>💥 碰撞物理</h3><p><b>羽毛球＝鞭梢抽击</b>：追触球瞬间极限线速度。<b>乒乓＝切向咬球</b>：海绵形变＋胶皮摩擦融合，靠马格努斯控弧线。<b>匹克球＝刚体动量微操</b>：既能扎实撞击，更要在 3 毫秒内放松手指把恢复系数降到最低。</p></div>
+      <div class="card"><h3>🧲 站位引力场</h3><p><b>羽毛球＝场地正中央</b>：每拍像橡皮筋弹回中心。<b>乒乓＝端线后半米</b>：并步跳步护台。<b>匹克球＝厨房线</b>：整场比赛就是把自己挪到线上、把对手钉在底线。</p></div>
+    </div>
+    <div style="margin-top:16px">
+      <table class="mx">
+        <tr><th>物理维度</th><th>🏸 羽毛球</th><th>🏓 乒乓球</th><th>🥒 匹克球</th></tr>
+        <tr><td>触球时长</td><td>3-6 毫秒（线床回弹）</td><td>约 1 毫秒（海绵吞吐）</td><td>3-4 毫秒（刚性碰撞）</td></tr>
+        <tr><td>主导物理</td><td>羽毛空气阻力：初速极高、落前垂直</td><td>马格努斯力：上旋把球按在台上</td><td>穿孔湍流＋低弹跳：平飞易飘出底线</td></tr>
+        <tr><td>手腕角色</td><td>内旋/外旋极速闪动</td><td>微内收＋寸劲摩擦制动</td><td>彻底锁死（打石膏）</td></tr>
+        <tr><td>被动第一法则</td><td>发力挑高远，用高度买 2 秒回中</td><td>迎前压上升期，绝不缩手</td><td>3 分力松握卸力 Reset</td></tr>
+        <tr><td>下肢逻辑</td><td>分腿垫步＋大跨步脚跟制动</td><td>小碎步并步平移，严禁劈叉</td><td>推进急停＋双人同频横移</td></tr>
+        <tr class="warn"><td>最致命串台</td><td>用乒乓平推压腕打高远→不到底且伤腕</td><td>用羽毛球大引拍甩腕拉球→慢半拍弧线乱</td><td>用羽乒抖腕薄擦控球→失误暴增 Reset 弹高</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 残留自测（共享） ============ -->
   <section id="test">
     <div class="sec-head"><h2>残留<em style="color:var(--bing)">自测</em></h2></div>
-    <p class="sec-sub">14 个陷阱逐张滑过：左滑「踩过」，右滑「没踩过」——测测你的出厂设置还剩多少残留。结束可复制战报，中招卡一键回看。</p>
+    <p class="sec-sub" id="testSub">当前运动的陷阱逐张滑过：左滑「踩过」，右滑「没踩过」——测测你的出厂设置残留多少。切换上方运动 tab 后再测，战报按运动分开记。</p>
     <div style="text-align:center;padding:20px 0 10px">
-      <button class="swipe-fab" id="openTest" style="position:static;display:inline-flex">🧪 开始残留自测 · 14 条</button>
+      <button class="swipe-fab" id="openTest" style="position:static;display:inline-flex">🧪 开始残留自测</button>
     </div>
   </section>
 
@@ -463,6 +857,30 @@ document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListene
   track('nav_click', { to: a.getAttribute('href').slice(1) });
 }));
 
+// ── sport tabs ─────────────────────────────────────────
+const SPORT_META = {
+  bd: { title: '事与愿违 · 运动反直觉陷阱 | 羽毛球', name: '羽毛球', share: '羽毛球 14 坑' },
+  pb: { title: '事与愿违 · 运动反直觉陷阱 | 匹克球', name: '匹克球', share: '匹克球 18 坑' },
+  tt: { title: '事与愿违 · 运动反直觉陷阱 | 乒乓球', name: '乒乓球', share: '乒乓 15 坑' }
+};
+function setSport(sp, first) {
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + sp || v.id === 'hero-' + sp));
+  document.body.dataset.view = sp;
+  document.querySelectorAll('.sport-tab[data-sport]').forEach(t => t.classList.toggle('active', t.dataset.sport === sp));
+  document.title = SPORT_META[sp] ? SPORT_META[sp].title : SPORT_META.bd.title;
+  if (!first) { history.replaceState(null, '', '#' + sp); track('sport_switch', { to: sp }); }
+  window.scrollTo({ top: 0 });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.sport-tab[data-sport]').forEach(t => t.addEventListener('click', () => setSport(t.dataset.sport)));
+  const h = location.hash;
+  setSport(SPORT_META[h.slice(1)] ? h.slice(1) : 'bd', !SPORT_META[h.slice(1)]);
+  window.addEventListener('hashchange', () => {
+    const sp = location.hash.slice(1);
+    if (SPORT_META[sp] && (document.body.dataset.view || 'bd') !== sp) setSport(sp);
+  });
+});
+
 // ── PostHog Telemetry ─────────────────────────────────
 const POSTHOG_KEY = 'phc_AbKVVXPDZKThtUacCHhFOITuBczUvLmPStN1JAZs93e';
 const POSTHOG_ENDPOINT = 'https://eu.i.posthog.com/capture/';
@@ -498,7 +916,8 @@ function track(event, props = {}) {
 
   function collect() {
     deck = []; idx = 0; miss = 0; results = [];
-    document.querySelectorAll('#matrix .card').forEach((el, i) => {
+    const view = document.body.dataset.view || 'bd';
+    document.querySelectorAll('#view-' + view + ' .card').forEach((el, i) => {
       const h3 = el.querySelector('h3'); if (!h3) return;
       el.id = el.id || ('trap-' + i);
       const zhi = el.querySelector('.side.zhi');
@@ -509,7 +928,7 @@ function track(event, props = {}) {
   function cardEl(item, layer) {
     const d = document.createElement('div');
     d.className = 'sw-card' + (layer ? ' sw-peek' + layer : '');
-    d.innerHTML = '<div class="sw-chip"><span>🏸 陷阱卡</span></div>' +
+    d.innerHTML = '<div class="sw-chip"><span>' + ({bd:'🏸', pb:'🥒', tt:'🏓'}[document.body.dataset.view || 'bd']) + ' 陷阱卡</span></div>' +
       '<div class="sw-q">这个坑你踩过吗？</div><h3>' + item.title + '</h3>' +
       '<div class="sw-hook">' + item.hook + '</div>' +
       '<div class="sw-stamp yes">没踩过</div><div class="sw-stamp nope">踩过</div>';
@@ -533,7 +952,7 @@ function track(event, props = {}) {
     const it = deck[idx]; if (!it) return;
     results.push({ ...it, ok: dir === 1 });
     if (dir === -1) miss++;
-    track('swipe_card', { card_id: it.id, card: it.title.slice(0, 40), verdict: dir === 1 ? 'clean' : 'hit' });
+    track('swipe_card', { card_id: it.id, card: it.title.slice(0, 40), sport: document.body.dataset.view || 'bd', verdict: dir === 1 ? 'clean' : 'hit' });
     const top = stack.querySelector('.sw-card:not(.sw-peek1):not(.sw-peek2)');
     if (top) {
       top.style.transition = 'transform .35s ease, opacity .35s ease';
@@ -579,7 +998,8 @@ function track(event, props = {}) {
       '<button class="sw-act ghost" id="swRetry">↻ 重测</button></div>';
     $('swRetry').onclick = () => { overlay.classList.remove('done'); open(true); };
     $('swShare').onclick = async () => {
-      const txt = '事与愿违 · 出厂设置残留自测\\n踩过 ' + hit + '/' + total + ' 个反直觉坑 ——「' + rank + '」\\n看起来用胳膊发力，实际蹬地转髋。来测你的：https://liyuankui.github.io/shiyuyuanwei/';
+      const sp = SPORT_META[document.body.dataset.view || 'bd'];
+      const txt = '事与愿违 · ' + sp.name + '出厂设置残留自测\\n' + sp.share + '里踩过 ' + hit + '/' + total + ' ——「' + rank + '」\\n来测你的：https://liyuankui.github.io/shiyuyuanwei/#' + (document.body.dataset.view || 'bd');
       try { await navigator.clipboard.writeText(txt); } catch (e) {}
       if (navigator.share) { try { await navigator.share({ text: txt }); } catch (e) {} }
       const b = $('swShare'); b.textContent = '✓ 已复制'; setTimeout(() => b.textContent = '⧉ 复制战报', 1600);
@@ -590,7 +1010,7 @@ function track(event, props = {}) {
       const el = document.getElementById(a.dataset.jump);
       if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.style.outline = '3px solid var(--bing)'; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outline = ''; }, 2200); }
     });
-    track('swipe_done', { hit, total, rank });
+    track('swipe_done', { sport: document.body.dataset.view || 'bd', hit, total, rank });
   }
 
   function open(replay) {
@@ -620,7 +1040,7 @@ function track(event, props = {}) {
 
   (function init() {
     if (!localStorage.getItem(UID_KEY)) localStorage.setItem(UID_KEY, 'u-' + Math.random().toString(36).slice(2, 10));
-    track('page_view', {});
+    track('page_view', { sport: (location.hash === '#pb' || location.hash === '#tt') ? location.hash.slice(1) : 'bd' });
   })();
 })();
 </script>
