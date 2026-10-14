@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事与愿违 · 运动反直觉陷阱 | 羽毛球先行</title>
+<meta name="description" content="你的身体，出厂设置是错的。羽毛球 14 个反直觉陷阱：看起来 vs 实际上、本能为何骗你、代价与纠正——越想发力越没力，越怕越退越是输。">
+<meta property="og:title" content="事与愿违 · 运动反直觉陷阱">
+<meta property="og:description" content="看起来是用胳膊发力；实际上，用的是蹬地转髋。羽毛球 14 个反直觉陷阱＋出厂设置理论＋残留自测。">
+<meta property="og:image" content="https://liyuankui.github.io/shiyuyuanwei/og-cover.png">
+<meta property="og:url" content="https://liyuankui.github.io/shiyuyuanwei/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23221e18'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f4efe4' font-family='Songti SC,serif' font-weight='900'%3E违%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#221e18; --cream:#f7f3ea; --paper:#fffdf8;
+  --zhi:#8a6d1d;   /* 直觉 · 褐 */
+  --shi:#2e6e4e;   /* 实际 · 绿 */
+  --bing:#bf3a26;
+  --serif:'Songti SC','Noto Serif SC',Georgia,serif;
+  --sans:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+*{line-break:strict}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.75}
+a{color:#2e5f8b;text-decoration:none}
+a:hover{text-decoration:underline}
+b{font-weight:700}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
+.nav-in{display:flex;align-items:center;gap:18px;padding:12px 22px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:900;font-size:19px}
+.brand em{font-style:normal;color:var(--bing)}
+.nav-in a{font-size:13.5px;color:#6a6152}
+.nav-in a.fam{margin-left:auto;color:var(--ink);font-weight:700}
+.sport-pill{border:1.5px solid var(--ink);border-radius:999px;padding:3px 12px;font-size:12.5px;font-weight:700;background:var(--ink);color:#f4efe4}
+.sport-pill.soon{background:var(--paper);color:#9a917f;border-color:#c9c0ad;opacity:.75}
+
+.hero{padding:60px 0 36px;text-align:center}
+.kicker{font-size:12px;letter-spacing:.35em;color:#8a8172;font-weight:700;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(44px,9vw,84px);line-height:1.08}
+h1 em{font-style:normal;color:var(--bing)}
+.vs-line{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px;flex-wrap:wrap}
+.vs-pill{font-family:var(--serif);font-weight:900;font-size:clamp(16px,3.2vw,21px);padding:6px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--paper)}
+.vs-pill.zhi{color:#fff;background:var(--zhi);border-color:var(--zhi)}
+.vs-pill.shi{color:#fff;background:var(--shi);border-color:var(--shi)}
+.vs-x{font-family:var(--serif);font-weight:900;font-size:20px;color:var(--bing)}
+.hero .sub{max-width:660px;margin:24px auto 0;font-size:15.5px;color:#4a443a}
+.quote{margin:32px auto 0;max-width:620px;font-family:var(--serif);font-size:clamp(17px,3.4vw,22px);font-weight:700;line-height:1.65}
+.quote small{display:block;font-family:var(--sans);font-weight:400;font-size:12.5px;color:#8a8172;margin-top:8px}
+.src-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.src-pills span{font-size:12.5px;border:1.5px solid #d8d0c0;border-radius:999px;padding:5px 13px;background:var(--paper);color:#5c5445}
+
+section{padding:52px 0 6px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(26px,5vw,34px)}
+.sec-sub{color:#5c5445;margin-bottom:24px;max-width:740px}
+.stage-h{display:flex;align-items:baseline;gap:12px;margin:30px 0 14px;flex-wrap:wrap}
+.stage-h .no{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--bing);border:2px solid var(--bing);border-radius:10px;padding:0 10px}
+.stage-h .nm{font-family:var(--serif);font-weight:900;font-size:20px}
+.stage-h .hint{font-size:12.5px;color:#8a8172}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:820px){.g2{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1.5px solid var(--ink);border-radius:14px;padding:20px 20px 16px;box-shadow:3px 3px 0 rgba(34,30,24,.16)}
+.card h3{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:12px}
+.card h3 .n{color:var(--bing);margin-right:6px}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duel .side{border-radius:10px;padding:10px 12px;font-size:13.6px;line-height:1.62}
+.duel .side b{display:block;font-size:11.5px;letter-spacing:.18em;margin-bottom:4px}
+.duel .zhi{background:rgba(138,109,29,.08);border:1px solid rgba(138,109,29,.4)}
+.duel .zhi b{color:var(--zhi)}
+.duel .shi{background:rgba(46,110,78,.08);border:1px solid rgba(46,110,78,.4)}
+.duel .shi b{color:var(--shi)}
+.rows{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.row{font-size:13px;line-height:1.6;padding:7px 10px;border-radius:8px;background:rgba(34,30,24,.04)}
+.row .lb{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;color:#fff;border-radius:5px;padding:1px 7px;margin-right:8px;vertical-align:1px}
+.row.why .lb{background:#8a8172}
+.row.cost .lb{background:var(--bing)}
+.row.fix{background:rgba(46,110,78,.1)}
+.row.fix .lb{background:var(--shi)}
+
+/* theory */
+.verdict{background:var(--ink);color:#f4efe4;border-radius:14px;padding:24px 26px;font-family:var(--serif);font-size:16.5px;line-height:1.85;margin-top:18px}
+.verdict em{font-style:normal;color:#e8b96a}
+.theory-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:820px){.theory-grid{grid-template-columns:1fr}}
+.theory-card{border-radius:14px;border:1.5px solid var(--ink);padding:18px;background:var(--paper)}
+.theory-card h3{font-family:var(--serif);font-size:18px;font-weight:900;margin-bottom:8px}
+.theory-card p,.theory-card li{font-size:13.8px;line-height:1.7}
+.theory-card ul{padding-left:18px}
+.bignum{font-family:var(--serif);font-weight:900;font-size:clamp(30px,5vw,40px);line-height:1.1;color:var(--bing)}
+.bignum small{font-size:14px;color:#8a8172;font-family:var(--sans);font-weight:400}
+.card .ref{margin-top:12px;font-size:12.5px;color:#8a8172;border-top:1px dashed #d8d0c0;padding-top:10px}
+
+/* swipe */
+.swipe-fab{position:fixed;right:18px;bottom:18px;z-index:900;display:flex;align-items:center;gap:8px;
+  background:var(--bing);color:#fff;border:none;border-radius:999px;padding:12px 18px;font-family:var(--serif);
+  font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(191,58,38,.35)}
+.swipe-fab:active{transform:scale(.96)}
+#swipeOverlay{position:fixed;inset:0;z-index:9999;background:rgba(28,24,19,.92);backdrop-filter:blur(6px);
+  display:none;flex-direction:column;color:#f4efe4}
+#swipeOverlay.open{display:flex}
+.sw-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:12px}
+.sw-head .sw-title{font-family:var(--serif);font-weight:900;font-size:17px}
+.sw-head .sw-shasi{font-size:13px;color:#e8c9a8;background:rgba(191,58,38,.25);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.sw-close{background:none;border:1px solid rgba(244,239,228,.3);color:#f4efe4;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+.sw-bar{height:4px;background:rgba(244,239,228,.15);margin:0 18px;border-radius:2px;overflow:hidden}
+.sw-bar i{display:block;height:100%;background:#e8b96a;width:0;transition:width .25s}
+.sw-stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sw-stack{position:relative;width:min(88vw,420px);height:min(64vh,540px)}
+.sw-card{position:absolute;inset:0;background:#f7f3ea;color:#221e18;border-radius:18px;border:2px solid #221e18;
+  box-shadow:0 18px 40px rgba(0,0,0,.4);padding:24px 22px;display:flex;flex-direction:column;gap:12px;
+  user-select:none;-webkit-user-select:none;touch-action:pan-y;overflow:hidden}
+.sw-card .sw-chip span{font-size:12px;font-weight:700;border:1.5px solid #221e18;border-radius:6px;padding:2px 8px;background:#fff}
+.sw-card .sw-q{font-size:14.5px;font-weight:700;color:var(--bing)}
+.sw-card h3{font-family:var(--serif);font-size:clamp(19px,5vw,24px);line-height:1.3;margin:0}
+.sw-card .sw-hook{font-size:14px;line-height:1.7;background:#fff;border:1.5px solid #221e18;border-radius:12px;padding:13px 15px;flex:1;overflow:auto}
+.sw-peek1{transform:scale(.94) translateY(14px);opacity:.55}
+.sw-peek2{transform:scale(.88) translateY(28px);opacity:.28}
+.sw-stamp{position:absolute;top:22px;font-family:var(--serif);font-weight:900;font-size:28px;border:4px solid;
+  border-radius:12px;padding:2px 14px;transform:rotate(-14deg);opacity:0;pointer-events:none}
+.sw-stamp.yes{right:18px;color:#2c6e49;border-color:#2c6e49}
+.sw-stamp.nope{left:18px;color:var(--bing);border-color:var(--bing);transform:rotate(14deg)}
+.sw-foot{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 26px;gap:14px}
+.sw-hint{font-size:13px;color:rgba(244,239,228,.75)}
+.sw-btns{display:flex;gap:10px}
+.sw-btn{width:56px;height:56px;border-radius:50%;border:2px solid #221e18;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center}
+.sw-btn.left{background:#e8c9a8}.sw-btn.right{background:#b7d8c2}
+.sw-end{position:absolute;inset:0;background:inherit;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;overflow:auto}
+#swipeOverlay.done .sw-end{display:flex}
+#swipeOverlay.done .sw-stack,#swipeOverlay.done .sw-btns{display:none}
+.sw-rank{font-family:var(--serif);font-weight:900;font-size:clamp(26px,7vw,36px);color:#f4efe4}
+.sw-sub{font-size:15px;color:rgba(244,239,228,.85)}
+.sw-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.sw-act{border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;border:2px solid #221e18}
+.sw-act.primary{background:var(--bing);color:#fff}
+.sw-act.ghost{background:transparent;color:#f4efe4;border-color:rgba(244,239,228,.4)}
+.sw-missed{width:min(88vw,420px);margin-top:4px;text-align:left;font-size:13px;color:rgba(244,239,228,.75)}
+.sw-missed a{color:#9fc3e8}
+
+footer.site{margin-top:70px;background:var(--ink);color:#cfc6b4;padding:40px 0 46px;font-size:13px}
+footer.site a{color:#9fc3e8}
+.foot-in{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap}
+.disclaim{max-width:560px;line-height:1.8}
+.share-btn{background:var(--bing);color:#fff;border:none;border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <span class="brand">事与<em>愿违</em></span>
+  <span class="sport-pill">🏸 羽毛球</span>
+  <span class="sport-pill soon" title="制作中">🥒</span>
+  <span class="sport-pill soon" title="制作中">🏓</span>
+  <span class="sport-pill soon" title="制作中">🎾</span>
+  <a href="#matrix">陷阱总览</a>
+  <a href="#theory">出厂设置</a>
+  <a href="#test">残留自测</a>
+  <a class="fam" href="https://liyuankui.github.io/" target="_blank">三板斧家族 →</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">SPORTS · 羽毛球先行</div>
+  <h1>事与<em>愿违</em></h1>
+  <div class="vs-line">
+    <span class="vs-pill zhi">看起来 · 出厂设置</span>
+    <span class="vs-x">×</span>
+    <span class="vs-pill shi">实际上 · 物理系统</span>
+  </div>
+  <p class="sub">你越想发力越没力，越怕越退越是输——因为人类的身体是为<b>搬重物、防摔倒、避风险</b>演化的，而羽毛球是<b>5 克极轻质量＋巨大空气阻力＋3 毫秒碰撞窗口</b>的人造极端物理系统。在这里，所有本能直觉都是错的。14 个陷阱，一次说清。</p>
+  <div class="quote">看起来：是用胳膊发力打球。<br>实际上：用的是蹬地转髋的力量。
+    <small>—— 本站方法的最小样本 · 每张卡都可这样对折</small>
+  </div>
+  <div class="src-pills">
+    <span>🧠 底稿：与 Gemini 的物理拆解对话</span>
+    <span>📚 交叉：教练共识与运动生物力学常识</span>
+    <span>⚠️ 伤病提示不构成医疗建议</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+  <!-- ============ 陷阱总览 ============ -->
+  <section id="matrix">
+    <div class="sec-head"><h2>陷阱<em style="color:var(--bing)">总览</em></h2></div>
+    <p class="sec-sub">每张卡五栏：<b>看起来</b>（直觉动作）→ <b>实际上</b>（物理本质）→ 本能为何骗你 → 代价（含伤病）→ 怎么改（训练法）。先记总开关：决定球速的不是力量，是触球瞬间拍头线速度——动能里速度是平方项。</p>
+
+    <div class="stage-h"><span class="no">壹</span><span class="nm">基础六坑</span><span class="hint">越努力，越错位</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">1</span>发力：靠制动，不靠推压</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>像推铅球：绷紧整条臂，大臂带着小臂往网口「抡」，用长长的跟随把球推过去。</div>
+          <div class="side shi"><b>实际上</b>大臂和肘在击球前瞬间<b>急停制动</b>，动量才无损耗地鞭打到拍头；正手旋内、反手旋外是人体最快的关节运动。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>进化为了搬重物——重物靠推，越用力越快。</div>
+          <div class="row cost"><span class="lb">代价</span>高远球永远不到位、杀球像拍苍蝇；肩袖损伤、网球肘。</div>
+          <div class="row fix"><span class="lb">纠正</span>鞭打意象：你是鞭柄，拍是鞭梢——练「急停」体会动量传递。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">2</span>握拍：越发力，手越要松</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>死攥球拍（苍蝇拍握法），从准备到结束手心贴死拍柄，生怕拍飞、怕发不上力。</div>
+          <div class="side shi"><b>实际上</b>紧绷会让拮抗肌同时收缩锁死手腕；引拍时手指放松，触球前几毫秒后三指<b>瞬间收紧</b>形成支点杠杆。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>对失控的恐惧——握紧才有安全感。</div>
+          <div class="row cost"><span class="lb">代价</span>正反手转换慢半拍、搓球无手感、动作僵硬无隐蔽。</div>
+          <div class="row fix"><span class="lb">纠正</span>引拍时「掌心能塞一枚鸡蛋」；只在触球瞬间握死。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">3</span>步法：启动第一步是「坠落」</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>脚跟踩实站稳，看清球飞向哪里，再迈开大腿往那个方向死跑。</div>
+          <div class="side shi"><b>实际上</b>对手触球前做<b>分腿垫步</b>：落地瞬间跟腱储存弹性势能、触发牵张反射——预压缩的弹簧向任意方向零延迟弹出。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>行走要防摔——站稳、看清、再动。</div>
+          <div class="row cost"><span class="lb">代价</span>永远在救球、慢半拍；脚尖戳地让膝盖承受全部水平冲击。</div>
+          <div class="row fix"><span class="lb">纠正</span>垫步与对手击球声同步；跨步最后一步脚跟先着地、向外微撇制动。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">4</span>身体：侧对网才有力</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>把球打过网，当然要正对球网、正对来球方向挥拍。</div>
+          <div class="side shi"><b>实际上</b>正对时人体是二维平面，没有发力纵深；侧身拉长胸背腹斜肌，<b>蹬地→转髋→转肩→倒拍→挥臂</b>层层放大，左臂高举快收维持角动量。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>面对威胁要正面应对。</div>
+          <div class="row cost"><span class="lb">代价</span>「仙女散花」式打球：力量被切割，后场零威胁。</div>
+          <div class="row fix"><span class="lb">纠正</span>架拍先侧身（左肩对网）；把左手举起来、用起来。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">5</span>反手：不是「拉」，是立肘「顶甩」</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>像网球单反：侧身用大臂把拍从左往右「拉」过去。</div>
+          <div class="side shi"><b>实际上</b>完全背对球网，<b>肘架高做固定支点</b>（立肘），大拇指顶住拍柄斜楞，前臂极速旋外「闪动」——身体一转，支点就散。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>手臂水平外展是人肩觉得最顺的路。</div>
+          <div class="row cost"><span class="lb">代价</span>反手成死穴：半场软球，被对手针对成提款机。</div>
+          <div class="row fix"><span class="lb">纠正</span>背对网立肘，以拇指为支点练「甩鞭闪动」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">6</span>时空：越被动，越要打得高</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>被动救球时拼命打平快球、贴网球，试图一拍翻盘；网前抓到机会就抡圆了砸。</div>
+          <div class="side shi"><b>实际上</b>被动时把球<b>挑高挑远买回两秒</b>回中重整；网前只剩 100 毫秒反应窗，只能手指捻动，拍头移动不超过一掌。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>被动时急于反击；近网想发死力。</div>
+          <div class="row cost"><span class="lb">代价</span>平快球半空被截；网前动作大则触网、出界、意图全露。</div>
+          <div class="row fix"><span class="lb">纠正</span>被动＝高远＋回中；网前＝最小动作，搓推勾扑全是捻指。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stage-h"><span class="no">贰</span><span class="nm">深水八坑</span><span class="hint">中级球友卡瓶颈的隐形墙</span></div>
+    <div class="grid g2">
+
+      <div class="card"><h3><span class="n">7</span>击球点：引拍走直线，不走弧</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>像网球那样在身体侧面画个大圆弧蓄力引拍。</div>
+          <div class="side shi"><b>实际上</b>肘部贴身直线抬高（倒拍）；击球点在右肩上方<b>偏前 15-30° 的至高点</b>，引拍越短越隐蔽。</div>
+        </div>
+        <div class="rows">
+          <div class="row cost"><span class="lb">代价</span>击球点低且偏侧，杀球变平抽；动作大被平高球顶死。</div>
+          <div class="row fix"><span class="lb">纠正</span>贴墙挥拍（撞墙＝画了圈）；强制在最高点伸直手臂「够」着打。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">8</span>接杀：零引拍，借力反弹</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>重杀袭来，往后引拍再大力挥拍把球「顶」回去。</div>
+          <div class="side shi"><b>实际上</b>杀球到身前只有 0.2 秒：<b>零引拍</b>、拍面迎前、手指瞬间锁死——靠对手的动能弹性碰撞弹回后场，球拍只往前 3 厘米。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>「对方力大，我也得发大力」。</div>
+          <div class="row cost"><span class="lb">代价</span>一引拍球已砸身；触球点落后必下网或出底线。</div>
+          <div class="row fix"><span class="lb">纠正</span>面壁挡球；来球瞬间禁止后拉——「拇指前顶一寸＋瞬间握死」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">9</span>回中：空中换脚的剪刀步</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>打完高远或杀球，落地后再急急忙忙往场地中心跑。</div>
+          <div class="side shi"><b>实际上</b><b>腾空时已完成转髋换脚</b>——还没落地，左脚已后蹬、右脚已跨向网前，落地瞬间第一步已经迈出。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>腾空时大脑只关心「平稳落地」，不敢空中扭转骨盆。</div>
+          <div class="row cost"><span class="lb">代价</span>重心钉死底线，对手轻放一个网前球你就交出。</div>
+          <div class="row fix"><span class="lb">纠正</span>无球剪刀跳：空中前后脚极速互换，左脚先落、右脚顺势前迈。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">10</span>吊球：用杀球的速度去吊</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>吊球＝放慢动作，轻轻把球「摸」过去。</div>
+          <div class="side shi"><b>实际上</b>前 95% 与杀球<b>完全一致</b>（蹬转、挥速全同），只在触球最后两毫秒斜切拍面（包切／劈吊），用摩擦把球速「切」掉。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>「打轻球＝慢动作、小力量」。</div>
+          <div class="row cost"><span class="lb">代价</span>你一减速，对手已提前启动到网前——吊球变送扑。</div>
+          <div class="row fix"><span class="lb">纠正</span>100% 杀球速度挥拍＋触球瞬间拍面斜转 45°，听那声「嚓」。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">11</span>搓球：横切削皮，不是上托</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>拍面托在球托正下方，轻轻往上「颠」一下让球过网。</div>
+          <div class="side shi"><b>实际上</b>由外向内<b>水平横切球托侧面</b>：线床吃住软木赋予高自转，球翻滚过网即坠。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>怕球不过网，只敢提供向上的支持力。</div>
+          <div class="row cost"><span class="lb">代价</span>托出的球不转、又高又飘，停在半空被一拍扑死。</div>
+          <div class="row fix"><span class="lb">纠正</span>「削苹果皮」：固定手腕，只用食指拇指捻动拍柄斜切划过。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">12</span>视觉：盯胸髋，别盯脸</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>死盯对手的脸和球拍看他往哪打；打完欣赏自己球的落点。</div>
+          <div class="side shi"><b>实际上</b>对手击球前盯其<b>胸口与髋部朝向</b>（骗不了人）；自己击球后用余光扫对手重心，绝不回头看球。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>中央凹习惯追踪快速末端物体；还有确认战果的冲动。</div>
+          <div class="row cost"><span class="lb">代价</span>盯手腕被假动作晃断脚踝；看球飞行时你还没回动。</div>
+          <div class="row fix"><span class="lb">纠正</span>剥夺注视训练：焦点锁对方胸脐之间；触球后禁止回头看球。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">13</span>呼吸：击球瞬间要吐气</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>多拍激烈对抗，全程憋着气连续发力。</div>
+          <div class="side shi"><b>实际上</b>击球瞬间<b>短促吐气</b>（嘶吼的科学版）激活横膈膜与腹横肌，击球后立刻深吸气放松。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>高压下交感神经兴奋，本能锁死声门憋气。</div>
+          <div class="row cost"><span class="lb">代价</span>憋气五拍血氧骤降、肌肉酸化——「多拍断电」，机会球莫名失误。</div>
+          <div class="row fix"><span class="lb">纠正</span>强制配音：每拍击球发短促的「哈」，把呼气与发力绑成一个指令。</div>
+        </div>
+      </div>
+
+      <div class="card"><h3><span class="n">14</span>双打：挑球的人定住，网前的人别回头</h3>
+        <div class="duel">
+          <div class="side zhi"><b>看起来</b>自己把球挑高了（心虚）赶紧往后退；搭档在后场杀球，网前的回头看热闹。</div>
+          <div class="side shi"><b>实际上</b>挑得越到位越要<b>守住中前场</b>：谁挑球谁退半步守直线、同伴守斜线；球一过自己头顶，立刻举拍半蹲死盯对面。</div>
+        </div>
+        <div class="rows">
+          <div class="row why"><span class="lb">本能</span>负罪感让人后撤避险；对身后的未知想回头看。</div>
+          <div class="row cost"><span class="lb">代价</span>越退越深，把中前场让给对手轻吊；网前一回头就漏掉挡网软球。</div>
+          <div class="row fix"><span class="lb">纠正</span>内化铁律：「谁挑谁守直线」＋「球过头顶不回头」——背后 100% 交给搭档。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 出厂设置 ============ -->
+  <section id="theory">
+    <div class="sec-head"><h2>出厂<em style="color:#e8b96a">设置</em></h2></div>
+    <p class="sec-sub">14 个陷阱指向同一个终极矛盾：基因与球场，物理参数完全错配。</p>
+    <div class="theory-grid">
+      <div class="theory-card">
+        <h3>🧬 你的出厂设置</h3>
+        <ul>
+          <li>自然界的石头木棍都很重 → 本能<b>抡大臂、画大圈、死死握紧</b></li>
+          <li>地面行走要防摔倒 → 本能<b>踩实脚跟、看清再动、站稳再转体</b></li>
+          <li>面对威胁要自保 → 本能<b>正对目标、憋气发力、被动急反、防守后躲</b></li>
+        </ul>
+      </div>
+      <div class="theory-card">
+        <h3>🏸 羽毛球的物理参数</h3>
+        <ul>
+          <li>球重约 <b>5 克</b>——极轻，靠推压毫无意义</li>
+          <li>初速极高但空气阻力<b>指数衰减</b>——后场球垂直下落</li>
+          <li>触球窗口仅 <b>3-6 毫秒</b>——神经反馈（100 毫秒以上）根本来不及参与</li>
+        </ul>
+      </div>
+      <div class="theory-card">
+        <h3>🔒 为什么坏习惯改不掉</h3>
+        <p>触球属于<b>开环控制</b>：动作在挥拍启动那一刻就由小脑打包执行，视觉与本体感觉来不及微调。实战有比分压力，大脑必调最熟的旧回路——<b>哪怕它是错的</b>。</p>
+      </div>
+      <div class="theory-card">
+        <h3>🔓 唯一的破解路径</h3>
+        <p>脱离实战对抗：<b>无球挥拍（Shadow Play）＋定点喂球</b>，把动作拆到最慢、用高密度正确重复，在神经突触上强行覆盖错误权重——先刷机，再上场。</p>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><div class="bignum">5<small> 克</small></div><div class="cap">球重——你搬重物的直觉在这里全部失效。</div></div>
+      <div class="card"><div class="bignum">3-6<small> 毫秒</small></div><div class="cap">触球窗口——比神经反馈快 20 倍，动作只能预装。</div></div>
+      <div class="card"><div class="bignum">v²</div><div class="cap">动能里速度是平方项——拍头线速度，不是肌肉力量。</div></div>
+    </div>
+    <div class="verdict">
+      业余与专业之间那道看不见的墙，从来不是体能或力量的差距——<em>是你能不能用理性的物理学认知，把身体里那套传承了百万年的「出厂设置」强行卸载掉。</em>
+    </div>
+  </section>
+
+  <!-- ============ 自测 ============ -->
+  <section id="test">
+    <div class="sec-head"><h2>残留<em style="color:var(--bing)">自测</em></h2></div>
+    <p class="sec-sub">14 个陷阱逐张滑过：左滑「踩过」，右滑「没踩过」——测测你的出厂设置还剩多少残留。结束可复制战报，中招卡一键回看。</p>
+    <div style="text-align:center;padding:20px 0 10px">
+      <button class="swipe-fab" id="openTest" style="position:static;display:inline-flex">🧪 开始残留自测 · 14 条</button>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site"><div class="wrap foot-in">
+  <div class="disclaim">
+    <div><b>口径与来源</b>：底稿为与 Gemini 的羽毛球物理拆解对话（2026-10），经教练共识与运动生物力学常识交叉整理；数字（球重、触球时长、关节运动速度等）为文献常见量级，非精确测定。伤病提示不构成医疗建议，疼痛持续请就医。乒乓球／匹克球／网球篇制作中。</div>
+    <button class="share-btn" id="shareBtn">⧉ 复制分享文案</button>
+  </div>
+  <div style="text-align:right">
+    <div>事与愿违 SHIYUYUANWEI · <a href="https://github.com/liyuankui/shiyuyuanwei" target="_blank">GitHub</a> · MIT</div>
+    <div style="margin-top:6px">三板斧家族：<a href="https://liyuankui.github.io/sanbanfu/" target="_blank">技术矩阵</a> · <a href="https://liyuankui.github.io/xianlihoubing/" target="_blank">礼仪规则</a> · <a href="https://liyuankui.github.io/geziweizhan/" target="_blank">单双差异</a></div>
+  </div>
+</div></footer>
+
+<div id="swipeOverlay" role="dialog" aria-label="残留自测">
+  <div class="sw-head">
+    <span class="sw-title">🧪 出厂设置残留自测</span>
+    <span class="sw-shasi" id="swShasi">残留 0</span>
+    <button class="sw-close" id="swClose">关闭 ESC</button>
+  </div>
+  <div class="sw-bar"><i id="swBar"></i></div>
+  <div class="sw-stage">
+    <div class="sw-stack" id="swStack"></div>
+    <div class="sw-end" id="swEnd"></div>
+  </div>
+  <div class="sw-foot">
+    <div class="sw-hint">← 踩过<br>方向键也可以</div>
+    <div class="sw-btns">
+      <button class="sw-btn left" id="swLeft" aria-label="踩过">✗</button>
+      <button class="sw-btn right" id="swRight" aria-label="没踩过">✓</button>
+    </div>
+    <div class="sw-hint" style="text-align:right">没踩过 →<br><span id="swCount">0 / 0</span></div>
+  </div>
+</div>
+
+<script>
+// ── share ─────────────────────────────────────────────
+const SHARE_TXT = '事与愿违｜运动反直觉陷阱：你的身体，出厂设置是错的。羽毛球 14 坑——越想发力越没力，越怕越退越是输。来测你的出厂设置残留：https://liyuankui.github.io/shiyuyuanwei/';
+document.getElementById('shareBtn').onclick = async () => {
+  try { await navigator.clipboard.writeText(SHARE_TXT); } catch (e) {}
+  const b = document.getElementById('shareBtn'); b.textContent = '✓ 已复制';
+  setTimeout(() => b.textContent = '⧉ 复制分享文案', 1600);
+  track('share_copy', {});
+};
+document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+  track('nav_click', { to: a.getAttribute('href').slice(1) });
+}));
+
+// ── PostHog Telemetry ─────────────────────────────────
+const POSTHOG_KEY = 'phc_AbKVVXPDZKThtUacCHhFOITuBczUvLmPStN1JAZs93e';
+const POSTHOG_ENDPOINT = 'https://eu.i.posthog.com/capture/';
+const PROJECT = 'shiyuyuanwei';
+const UID_KEY = PROJECT + '-uid';
+
+function track(event, props = {}) {
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+    try {
+        navigator.sendBeacon(POSTHOG_ENDPOINT, JSON.stringify({
+            api_key: POSTHOG_KEY,
+            event,
+            timestamp: new Date().toISOString(),
+            properties: {
+                distinct_id: localStorage.getItem(UID_KEY) || 'unknown',
+                project: PROJECT,
+                url: location.pathname,
+                page: 'index',
+                ref: (document.referrer ? new URL(document.referrer).hostname : 'direct'),
+                ...props
+            }
+        }));
+    } catch (e) {}
+}
+
+// ── Swipe · 出厂设置残留自测 ──────────────────────────
+(function () {
+  let deck = [], idx = 0, miss = 0, results = [];
+  const $ = (x) => document.getElementById(x);
+  let overlay, stack;
+
+  function collect() {
+    deck = []; idx = 0; miss = 0; results = [];
+    document.querySelectorAll('#matrix .card').forEach((el, i) => {
+      const h3 = el.querySelector('h3'); if (!h3) return;
+      el.id = el.id || ('trap-' + i);
+      const zhi = el.querySelector('.side.zhi');
+      deck.push({ id: el.id, title: h3.textContent.trim().replace(/^\d+/, '').trim(), hook: zhi ? zhi.textContent.trim() : '' });
+    });
+  }
+
+  function cardEl(item, layer) {
+    const d = document.createElement('div');
+    d.className = 'sw-card' + (layer ? ' sw-peek' + layer : '');
+    d.innerHTML = '<div class="sw-chip"><span>🏸 陷阱卡</span></div>' +
+      '<div class="sw-q">这个坑你踩过吗？</div><h3>' + item.title + '</h3>' +
+      '<div class="sw-hook">' + item.hook + '</div>' +
+      '<div class="sw-stamp yes">没踩过</div><div class="sw-stamp nope">踩过</div>';
+    return d;
+  }
+
+  function render() {
+    stack.innerHTML = '';
+    for (let l = 2; l >= 0; l--) {
+      const it = deck[idx + l]; if (!it) continue;
+      const c = cardEl(it, l);
+      if (l === 0) bindDrag(c);
+      stack.appendChild(c);
+    }
+    $('swBar').style.width = (idx / deck.length * 100) + '%';
+    $('swCount').textContent = (idx + 1) + ' / ' + deck.length;
+    $('swShasi').textContent = '残留 ' + miss;
+  }
+
+  function commit(dir) {
+    const it = deck[idx]; if (!it) return;
+    results.push({ ...it, ok: dir === 1 });
+    if (dir === -1) miss++;
+    track('swipe_card', { card_id: it.id, card: it.title.slice(0, 40), verdict: dir === 1 ? 'clean' : 'hit' });
+    const top = stack.querySelector('.sw-card:not(.sw-peek1):not(.sw-peek2)');
+    if (top) {
+      top.style.transition = 'transform .35s ease, opacity .35s ease';
+      top.style.transform = 'translateX(' + dir * 130 + '%) rotate(' + dir * 24 + 'deg)';
+      top.style.opacity = '0';
+    }
+    idx++;
+    setTimeout(() => { idx >= deck.length ? finish() : render(); }, 320);
+  }
+
+  function bindDrag(card) {
+    let sx = 0, dx = 0, drag = false;
+    const y = card.querySelector('.sw-stamp.yes'), n = card.querySelector('.sw-stamp.nope');
+    card.addEventListener('pointerdown', (e) => { drag = true; sx = e.clientX; dx = 0; card.setPointerCapture(e.pointerId); card.style.transition = 'none'; });
+    card.addEventListener('pointermove', (e) => {
+      if (!drag) return; dx = e.clientX - sx;
+      card.style.transform = 'translateX(' + dx + 'px) rotate(' + Math.max(-18, Math.min(18, dx / 14)) + 'deg)';
+      y.style.opacity = Math.max(0, dx / 110); n.style.opacity = Math.max(0, -dx / 110);
+    });
+    const end = () => {
+      if (!drag) return; drag = false;
+      if (Math.abs(dx) > Math.min(140, innerWidth * .32)) commit(dx > 0 ? 1 : -1);
+      else { card.style.transition = 'transform .3s ease'; card.style.transform = ''; y.style.opacity = 0; n.style.opacity = 0; }
+    };
+    card.addEventListener('pointerup', end);
+    card.addEventListener('pointercancel', end);
+  }
+
+  function finish() {
+    overlay.classList.add('done');
+    const hit = results.filter(r => !r.ok).length, total = results.length;
+    const rank = hit === 0 ? '系统已 root' : hit <= 4 ? '大部分已重写' : hit <= 9 ? '已开始卸载' : hit <= 13 ? '出厂设置顽固' : '原厂全新未拆封';
+    $('swBar').style.width = '100%';
+    const missed = results.filter(r => !r.ok);
+    const missList = missed.length
+      ? '<div class="sw-missed"><b>踩过的坑（点击回看）：</b><ul>' + missed.map(r => '<li><a href="#" data-jump="' + r.id + '">' + r.title + '</a></li>').join('') + '</ul></div>'
+      : '<div class="sw-missed">零残留——你是教科书，还是没打过球？</div>';
+    $('swEnd').innerHTML =
+      '<div class="sw-rank">' + rank + '</div>' +
+      '<div class="sw-sub">踩过 <b>' + hit + '</b> / ' + total + ' 个坑 · 残留指数 ' + hit + '</div>' + missList +
+      '<div class="sw-actions">' +
+      '<button class="sw-act primary" id="swShare">⧉ 复制战报</button>' +
+      '<button class="sw-act ghost" id="swRetry">↻ 重测</button></div>';
+    $('swRetry').onclick = () => { overlay.classList.remove('done'); open(true); };
+    $('swShare').onclick = async () => {
+      const txt = '事与愿违 · 出厂设置残留自测\\n踩过 ' + hit + '/' + total + ' 个反直觉坑 ——「' + rank + '」\\n看起来用胳膊发力，实际蹬地转髋。来测你的：https://liyuankui.github.io/shiyuyuanwei/';
+      try { await navigator.clipboard.writeText(txt); } catch (e) {}
+      if (navigator.share) { try { await navigator.share({ text: txt }); } catch (e) {} }
+      const b = $('swShare'); b.textContent = '✓ 已复制'; setTimeout(() => b.textContent = '⧉ 复制战报', 1600);
+      track('swipe_share', { hit, total, rank });
+    };
+    document.querySelectorAll('#swEnd [data-jump]').forEach(a => a.onclick = (e) => {
+      e.preventDefault(); close();
+      const el = document.getElementById(a.dataset.jump);
+      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.style.outline = '3px solid var(--bing)'; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outline = ''; }, 2200); }
+    });
+    track('swipe_done', { hit, total, rank });
+  }
+
+  function open(replay) {
+    collect(); overlay.classList.add('open'); overlay.classList.remove('done');
+    document.body.style.overflow = 'hidden';
+    if (!replay) track('swipe_open', { cards: deck.length });
+    render();
+  }
+  function close() {
+    overlay.classList.remove('open', 'done'); document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    overlay = $('swipeOverlay'); stack = $('swStack');
+    $('openTest').onclick = () => open();
+    $('swClose').onclick = close;
+    $('swLeft').onclick = () => commit(-1);
+    $('swRight').onclick = () => commit(1);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!overlay || !overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (overlay.classList.contains('done')) return;
+    if (e.key === 'ArrowLeft') commit(-1);
+    if (e.key === 'ArrowRight') commit(1);
+  });
+
+  (function init() {
+    if (!localStorage.getItem(UID_KEY)) localStorage.setItem(UID_KEY, 'u-' + Math.random().toString(36).slice(2, 10));
+    track('page_view', {});
+  })();
+})();
+</script>
+</body>
+</html>
